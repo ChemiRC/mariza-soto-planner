@@ -1,0 +1,128 @@
+{
+  "projectName": "mariza-soto-planer",
+  "description": "Landing page profesional para Mariza Soto Planner — organizadora de eventos con 15 años de experiencia",
+  "framework": "React 18 + Vite 5",
+  "language": "JavaScript/JSX",
+  "styling": "CSS3 (custom properties, grid, flexbox, gradientes)",
+  "nodeVersion": "18+",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keyFiles": {
+    "entryPoint": "src/main.jsx",
+    "appComponent": "src/App.jsx",
+    "globalStyles": "src/styles/globals.css",
+    "contentConfig": "src/data/events.json",
+    "customHook": "src/hooks/useRevealOnScroll.js"
+  },
+  "components": {
+    "layout": [
+      "Navbar (sticky header con mobile menu)",
+      "Footer (con redes sociales y botón flotante WhatsApp)"
+    ],
+    "sections": [
+      "Hero (headline + estadísticas + CTAs)",
+      "About (filosofía + testimonial quote)",
+      "Services (grid de 6 servicios con iconografía SVG inline)",
+      "Categories (tabs + galería asimétrica con lazy loading + lightbox accesible)",
+      "Testimonials (tarjetas de opiniones de clientes)",
+      "Contact (formulario → WhatsApp + info de contacto)"
+    ]
+  },
+  "features": {
+    "accessibility": [
+      "Skip link",
+      "ARIA labels en tabs y lightbox",
+      "Focus visible styling",
+      "prefers-reduced-motion respetado",
+      "Contraste de colores WCAG AA"
+    ],
+    "performance": [
+      "Lazy loading de imágenes en galería",
+      "Code splitting (React vendor separado)",
+      "CSS minificado + clases reutilizables",
+      "SVG inline para iconos (sin assets adicionales)"
+    ],
+    "seo": [
+      "Meta tags (description, OG, viewport)",
+      "JSON-LD (LocalBusiness schema)",
+      "Títulos semánticos (h1-h4)",
+      "Alt text en imágenes"
+    ]
+  },
+  "colorPalette": {
+    "primary": "#2b2b2e (ink - texto)",
+    "accent": "#c9a96a (gold suave)",
+    "background": "#fbfbfc (perla)",
+    "secondary": "#b8b8bd (plata)",
+    "surface": "#ffffff"
+  },
+  "typography": {
+    "headings": "Playfair Display (serif, 400 italic)",
+    "body": "Inter (sans-serif, 400-600)"
+  },
+  "contentStructure": {
+    "company": {
+      "description": "Datos de contacto, redes sociales, ubicación",
+      "fields": ["name", "phone", "whatsapp", "email", "instagram", "facebook", "tiktok", "yearsOfExperience", "location"]
+    },
+    "categories": {
+      "description": "7 tipos de eventos con galerías de fotos/videos",
+      "fields": ["id", "name", "description", "services", "gallery"],
+      "galleryTypes": ["image", "video"]
+    },
+    "services": {
+      "description": "6 servicios clave ofrecidos",
+      "icons": ["chair", "sparkles", "utensils", "candy", "cheese", "clipboard"]
+    }
+  },
+  "fileStructure": {
+    "root": ["package.json", "vite.config.js", "index.html", "README.md", "SETUP.md", ".gitignore"],
+    "src": {
+      "main.jsx": "React entry point",
+      "App.jsx": "Root component",
+      "styles": ["globals.css (CSS variables, utilidades, base styles)"],
+      "data": ["events.json (toda la información editable)"],
+      "hooks": ["useRevealOnScroll.js (IntersectionObserver para animaciones)"],
+      "components": {
+        "Navbar": ["Navbar.jsx", "Navbar.css"],
+        "Hero": ["Hero.jsx", "Hero.css"],
+        "About": ["About.jsx", "About.css"],
+        "Services": ["Services.jsx", "Services.css"],
+        "Gallery": ["Categories.jsx", "Categories.css", "GalleryItem.jsx", "Lightbox.jsx", "Lightbox.css"],
+        "Testimonials": ["Testimonials.jsx", "Testimonials.css"],
+        "Contact": ["Contact.jsx", "Contact.css"],
+        "Footer": ["Footer.jsx", "Footer.css"]
+      }
+    },
+    "public": {
+      "favicon.svg": "Logo circular con M",
+      "images": {
+        "bodas": [],
+        "bautizos": ["bautizo1.svg - bautizo8.svg"],
+        "babyshowers": [],
+        "graduaciones": [],
+        "comuniones": [],
+        "cumpleaños": [],
+        "fiestas-infantiles": []
+      }
+    }
+  },
+  "editionGuide": {
+    "cambiarContacto": "Edita src/data/events.json → company (no toca código)",
+    "cambiarImágenes": "Reemplaza archivos en public/images/ y actualiza src/data/events.json → gallery (src: '/images/...')",
+    "cambiarColores": "Edita src/styles/globals.css → :root (variables CSS)",
+    "agregar evento": "Añade entrada a src/data/events.json → categories y crea carpeta en public/images/",
+    "cambiarTipografía": "Busca 'Playfair Display' e 'Inter' en index.html y globals.css"
+  },
+  "deployment": {
+    "buildOutput": "dist/",
+    "staticFiles": "public/",
+    "recommended": ["Vercel", "Netlify"],
+    "buildCommand": "npm run build",
+    "previewCommand": "npm run preview"
+  },
+  "notes": "Sistema de contenido desacoplado permite que el usuario edite todo sin tocar React. Componentes reutilizables, estilos con CSS custom properties (no Tailwind) para control fino. Imágenes actualmente en formato SVG (placeholders profesionales); fácil reemplazar con JPG/WebP. Lightbox accesible con navegación por teclado. Sin dependencias grandes (solo React 18 + React DOM)."
+}

@@ -1,0 +1,171 @@
+{
+  "company": {
+    "name": "Mariza Soto Planner",
+    "tagline": "Eventos inolvidables, diseñados con alma",
+    "yearsOfExperience": 15,
+    "location": "Guadalajara, Jalisco",
+    "coverage": "Disponibles para viajar a cualquier ubicación de la República",
+    "phone": "+52 33 0000 0000",
+    "whatsapp": "523300000000",
+    "email": "contacto@marizasotoplanner.com",
+    "instagram": "https://instagram.com/marizasotoplanner",
+    "facebook": "https://facebook.com/marizasotoplanner",
+    "tiktok": "https://tiktok.com/@marizasotoplanner"
+  },
+  "stats": [
+    { "number": "15+", "label": "Años de experiencia" },
+    { "number": "850+", "label": "Eventos realizados" },
+    { "number": "100%", "label": "Clientes felices" },
+    { "number": "32",   "label": "Estados visitados" }
+  ],
+  "services": [
+    {
+      "id": "mobiliario",
+      "title": "Mobiliario",
+      "description": "Mesas, sillas, lounges y piezas únicas para ambientar cada momento.",
+      "icon": "chair"
+    },
+    {
+      "id": "decoracion",
+      "title": "Decoración",
+      "description": "Diseño floral, iluminación y montaje a la medida de tu visión.",
+      "icon": "sparkles"
+    },
+    {
+      "id": "banquete",
+      "title": "Banquete",
+      "description": "Menús personalizados con cocina mexicana e internacional de autor.",
+      "icon": "utensils"
+    },
+    {
+      "id": "candybar",
+      "title": "Candy Bar",
+      "description": "Mesas dulces tematizadas que cautivan a niños y adultos.",
+      "icon": "candy"
+    },
+    {
+      "id": "mesa-quesos",
+      "title": "Mesa de Quesos",
+      "description": "Curaduría gourmet de quesos, embutidos, fruta y maridajes.",
+      "icon": "cheese"
+    },
+    {
+      "id": "coordinacion",
+      "title": "Coordinación integral",
+      "description": "Producción de A a Z para que disfrutes sin preocupaciones.",
+      "icon": "clipboard"
+    }
+  ],
+  "categories": [
+    {
+      "id": "bodas",
+      "name": "Bodas",
+      "description": "El día más importante merece ser eterno. Coordinamos cada detalle de tu boda civil, religiosa o destination wedding.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Mesa de quesos", "Coordinación integral"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80", "alt": "Ceremonia de boda al aire libre" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1200&q=80", "alt": "Pareja recién casada" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&q=80", "alt": "Decoración de mesa de banquete" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&q=80", "alt": "Arreglo floral de boda" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80", "alt": "Pastel de boda elegante" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=80", "alt": "Mesa de novios decorada" },
+        { "type": "video", "src": "https://www.w3schools.com/html/mov_bbb.mp4", "poster": "https://images.unsplash.com/photo-1525772764200-be829a350797?w=1200&q=80", "alt": "Highlights de boda" }
+      ]
+    },
+    {
+      "id": "baby-showers",
+      "name": "Baby Showers",
+      "description": "Celebramos la llegada del nuevo integrante con paletas suaves, juegos y rincones fotogénicos.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Candy Bar"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80", "alt": "Mesa de postres baby shower" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1623001249435-c0b1ca3104a4?w=1200&q=80", "alt": "Decoración con globos pastel" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1607608915135-8d6c5d52e2c5?w=1200&q=80", "alt": "Mesa de regalos baby shower" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1559456212-d7929da4b75e?w=1200&q=80", "alt": "Detalles decorativos rosa" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1530841344095-502a35bf6308?w=1200&q=80", "alt": "Centro de mesa baby shower" }
+      ]
+    },
+    {
+      "id": "bautizos",
+      "name": "Bautizos",
+      "description": "Ceremonias serenas y banquetes íntimos para celebrar este momento de fe en familia.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Mesa de quesos"],
+      "gallery": [
+        { "type": "image", "src": "/images/bautizos/bautizo1.jpeg", "alt": "Ceremonia de bautizo en iglesia con velas" },
+        { "type": "image", "src": "/images/bautizos/bautizo2.jpeg", "alt": "Mesa de regalos elegante para bautizo" },
+        { "type": "image", "src": "/images/bautizos/bautizo3.jpeg", "alt": "Piscina bautismal decorada con flores blancas" },
+        { "type": "image", "src": "/images/bautizos/bautizo4.jpeg", "alt": "Arco floral para ceremonia de bautizo" },
+        { "type": "image", "src": "/images/bautizos/bautizo5.jpeg", "alt": "Mesa de banquete para celebración de bautizo" },
+        { "type": "image", "src": "/images/bautizos/bautizo6.jpeg", "alt": "Pastel decorado para bautizo con detalles dorados" },
+        { "type": "image", "src": "/images/bautizos/bautizo7.jpeg", "alt": "Cajas de regalos y flores para bautizo" },
+        { "type": "image", "src": "/images/bautizos/bautizo8.jpeg", "alt": "Foto familiar en ceremonia de bautizo" }
+      ]
+    },
+    {
+      "id": "primeras-comuniones",
+      "name": "Primeras Comuniones",
+      "description": "Diseños sobrios y luminosos para esta celebración familiar tan especial.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Candy Bar"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1200&q=80", "alt": "Mesa primera comunión" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1200&q=80", "alt": "Detalles religiosos" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1535970793482-07de93762dc4?w=1200&q=80", "alt": "Centro de mesa con flores blancas" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1200&q=80", "alt": "Velas y arreglo floral" }
+      ]
+    },
+    {
+      "id": "cumpleanos",
+      "name": "Cumpleaños",
+      "description": "Desde reuniones íntimas hasta celebraciones temáticas; tu día, tu estilo.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Candy Bar", "Mesa de quesos"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80", "alt": "Pastel de cumpleaños" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1200&q=80", "alt": "Globos dorados de cumpleaños" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80", "alt": "Brindis en celebración" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1496843916299-590492c751f4?w=1200&q=80", "alt": "Mesa decorada cumpleaños" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80", "alt": "Fiesta de cumpleaños" }
+      ]
+    },
+    {
+      "id": "fiestas-infantiles",
+      "name": "Fiestas Infantiles",
+      "description": "Mundos mágicos diseñados para que los más pequeños vivan una aventura inolvidable.",
+      "services": ["Mobiliario", "Decoración", "Candy Bar", "Banquete"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80", "alt": "Fiesta infantil decorada" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1200&q=80", "alt": "Globos coloridos fiesta infantil" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1502810190503-8303352d0dd1?w=1200&q=80", "alt": "Mesa de niños temática" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1559535332-db9971090158?w=1200&q=80", "alt": "Decoración fiesta infantil" }
+      ]
+    },
+    {
+      "id": "graduaciones",
+      "name": "Graduaciones",
+      "description": "Cerramos un ciclo a la altura del esfuerzo: cenas elegantes y producción impecable.",
+      "services": ["Mobiliario", "Decoración", "Banquete", "Mesa de quesos"],
+      "gallery": [
+        { "type": "image", "src": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&q=80", "alt": "Graduados celebrando" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?w=1200&q=80", "alt": "Diploma de graduación" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1200&q=80", "alt": "Cena de graduación" },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1200&q=80", "alt": "Brindis de graduación" }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Andrea & Carlos",
+      "event": "Boda — Chapala, Jalisco",
+      "quote": "Mariza convirtió cada idea en realidad. Su equipo cuidó cada flor, cada vela y cada brindis. Nuestra boda fue un sueño."
+    },
+    {
+      "name": "Familia Ruvalcaba",
+      "event": "Bautizo — Guadalajara",
+      "quote": "Atención al detalle impecable. Nuestros invitados aún recuerdan la mesa de quesos y la decoración."
+    },
+    {
+      "name": "Mariana Pérez",
+      "event": "XV años — Zapopan",
+      "quote": "Profesionalismo de principio a fin. Mariza entendió a la perfección lo que mi hija imaginaba."
+    }
+  ]
+}

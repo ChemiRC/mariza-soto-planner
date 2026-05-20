@@ -1,0 +1,66 @@
+.testimonials__grid {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.testimonial {
+  position: relative;
+  padding: 2.6rem 2rem 2rem;
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--color-silver-100);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold-soft);
+}
+
+.testimonial__quote-mark {
+  position: absolute;
+  top: -10px;
+  left: 1.4rem;
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-gold);
+}
+
+.testimonial blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-ink);
+  margin: 0 0 1.6rem;
+  quotes: none;
+}
+
+.testimonial blockquote::before,
+.testimonial blockquote::after { content: ''; }
+
+.testimonial figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-silver-100);
+}
+
+.testimonial figcaption strong {
+  font-weight: 600;
+  color: var(--color-ink);
+  font-size: 0.95rem;
+}
+
+.testimonial figcaption span {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+}
