@@ -4,7 +4,7 @@ import About from './components/About/About';
 import Services from './components/Services/Services';
 import Categories from './components/Gallery/Categories';
 import Testimonials from './components/Testimonials/Testimonials';
-import Contact from './components/Contact/Contact';
+import Cta from './components/Cta/Cta';
 import Footer from './components/Footer/Footer';
 import useRevealOnScroll from './hooks/useRevealOnScroll';
 
@@ -23,7 +23,7 @@ export default function App() {
         <Services />
         <Categories />
         <Testimonials />
-        <Contact />
+        <Cta />
       </main>
       <Footer />
     </>

@@ -1,7 +1,7 @@
 .services .section-title { margin-top: 0.5rem; }
 
 .services__grid {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.25rem;
@@ -9,13 +9,33 @@
 
 .service-card {
   position: relative;
-  padding: 2.4rem 1.8rem;
+  padding: 2.4rem 1.8rem 2rem;
   background: #fff;
   border: 1px solid var(--color-silver-100);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   transition: all var(--transition-base);
   overflow: hidden;
   isolation: isolate;
+}
+
+/* Decorative number */
+.service-card__number {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.2rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-silver-100);
+  font-weight: 400;
+  pointer-events: none;
+  transition: color var(--transition-base);
+  z-index: 0;
+}
+
+.service-card:hover .service-card__number {
+  color: var(--color-gold-pale);
 }
 
 .service-card::before {
@@ -33,7 +53,7 @@
   position: absolute;
   inset: 1px;
   background: #fff;
-  border-radius: calc(var(--radius-md) - 1px);
+  border-radius: calc(var(--radius-lg) - 1px);
   z-index: -1;
 }
 
@@ -45,21 +65,23 @@
 .service-card:hover::before { opacity: 1; }
 
 .service-card__icon {
-  width: 56px;
-  height: 56px;
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--gradient-silver);
   color: var(--color-ink);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
   border: 1px solid var(--color-silver-200);
   transition: all var(--transition-base);
 }
 
 .service-card__icon svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
 .service-card:hover .service-card__icon {
@@ -69,13 +91,41 @@
 }
 
 .service-card h3 {
-  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.1rem, 1.3vw + 0.5rem, 1.2rem);
   margin-bottom: 0.5rem;
 }
 
 .service-card p {
+  position: relative;
+  z-index: 1;
   font-size: 0.95rem;
   color: var(--color-ink-soft);
   margin: 0;
   line-height: 1.65;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 640px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .service-card {
+    padding: 1.8rem 1.4rem 1.6rem;
+  }
+
+  .service-card__number {
+    font-size: 3.5rem;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 480px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
 }

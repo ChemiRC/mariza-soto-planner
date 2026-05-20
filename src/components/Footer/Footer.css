@@ -35,6 +35,7 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .footer__logo-text {
@@ -62,7 +63,7 @@
 .footer__tagline {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.55;
 }
@@ -92,6 +93,7 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.65);
   transition: color var(--transition-base);
+  word-break: break-word;
 }
 
 .footer__col a:hover { color: var(--color-gold-soft); }
@@ -101,17 +103,20 @@
   display: flex;
   gap: 0.5rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer__social a {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.7);
   transition: all var(--transition-base);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .footer__social a:hover {
@@ -146,15 +151,34 @@
   color: var(--color-gold-soft);
 }
 
+/* Tablet */
 @media (max-width: 880px) {
   .footer__inner {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
   }
 }
 
+/* Mobile */
 @media (max-width: 500px) {
-  .footer__inner { grid-template-columns: 1fr; }
-  .footer__bottom-inner { justify-content: center; text-align: center; }
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .footer__brand {
+    grid-column: auto;
+  }
+
+  .footer__bottom-inner {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* Floating WhatsApp */
@@ -172,6 +196,8 @@
   box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
   z-index: 90;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .float-wa:hover {
@@ -185,6 +211,12 @@
 }
 
 @media (max-width: 600px) {
-  .float-wa { width: 52px; height: 52px; bottom: 1rem; right: 1rem; }
+  .float-wa {
+    width: 52px;
+    height: 52px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
   .float-wa svg { width: 24px; height: 24px; }
 }

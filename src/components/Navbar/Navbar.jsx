@@ -7,7 +7,6 @@ const navItems = [
   { id: 'servicios',      label: 'Servicios' },
   { id: 'eventos',        label: 'Eventos' },
   { id: 'testimonios',    label: 'Testimonios' },
-  { id: 'contacto',       label: 'Contacto' },
 ];
 
 export default function Navbar() {

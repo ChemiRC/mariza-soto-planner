@@ -55,6 +55,9 @@
 
   --transition-base: 320ms cubic-bezier(0.22, 1, 0.36, 1);
   --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Touch targets */
+  --touch-min: 44px;
 }
 
 /* Reset */
@@ -67,6 +70,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -79,6 +83,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 img,
@@ -111,9 +116,9 @@ h1, h2, h3, h4 {
   line-height: 1.18;
 }
 
-h1 { font-size: clamp(2.4rem, 5vw + 1rem, 4.6rem); font-weight: 400; }
-h2 { font-size: clamp(2rem, 3vw + 1rem, 3.2rem); }
-h3 { font-size: clamp(1.4rem, 1.4vw + 0.8rem, 1.9rem); }
+h1 { font-size: clamp(2rem, 5vw + 1rem, 4.6rem); font-weight: 400; }
+h2 { font-size: clamp(1.8rem, 3vw + 1rem, 3.2rem); }
+h3 { font-size: clamp(1.2rem, 1.4vw + 0.8rem, 1.9rem); }
 
 p {
   margin: 0 0 1rem;
@@ -132,18 +137,18 @@ p {
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
 }
 
 .container-narrow {
   width: 100%;
   max-width: var(--container-narrow);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
 }
 
 .section {
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(3.5rem, 8vw, 7rem);
   position: relative;
 }
 
@@ -179,20 +184,21 @@ p {
 }
 
 .lead {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.1rem);
   color: var(--color-ink-soft);
   max-width: 720px;
   margin-inline: auto;
   text-align: center;
 }
 
-/* Botones */
+/* Botones — touch targets mínimo 44px */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 0.9rem 2rem;
+  padding: 0.85rem 1.8rem;
+  min-height: var(--touch-min);
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-weight: 500;
@@ -201,6 +207,8 @@ p {
   cursor: pointer;
   transition: all var(--transition-base);
   white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary {
@@ -343,5 +351,13 @@ p {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile: stack buttons full-width cuando están solos */
+@media (max-width: 480px) {
+  .btn {
+    font-size: 1rem;
+    padding: 0.9rem 1.6rem;
   }
 }

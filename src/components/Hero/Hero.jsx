@@ -29,7 +29,7 @@ export default function Hero() {
             Ver nuestro portafolio
           </a>
           <a href="#contacto" className="btn btn-outline">
-            Hablemos de tu evento
+            Cotizar mi evento
           </a>
         </div>
 

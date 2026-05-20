@@ -68,6 +68,9 @@ export default function Services() {
               key={service.id}
               style={{ transitionDelay: `${idx * 60}ms` }}
             >
+              <span className="service-card__number" aria-hidden="true">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
               <div className="service-card__icon">
                 {Icons[service.icon] || Icons.sparkles}
               </div>
