@@ -1,76 +1,87 @@
 /* =====================================================
-   Mariza Soto Planner — Estilos globales
-   Paleta: Plata, perla, blanco y dorado suave
+   Mariza Soto Planner — Dark elegant theme
+   Inspirado en Rafanelli Events / Preston Bailey
    ===================================================== */
 
 :root {
-  /* Plateados y perla */
-  --color-bg: #fbfbfc;
-  --color-bg-alt: #f4f4f6;
-  --color-pearl: #ececef;
-  --color-silver-100: #e3e3e6;
-  --color-silver-200: #cfcfd4;
-  --color-silver-300: #b8b8bd;
-  --color-silver-400: #9a9aa0;
-  --color-silver-500: #7a7a80;
+  /* — Paleta principal — */
+  --color-bg:           #0a0a0a;
+  --color-bg-alt:       #121212;
+  --color-bg-soft:      #1a1a1a;
+  --color-bg-card:      #1f1f1f;
+  --color-pearl:        #2a2a2a;
+  --color-line:         #2e2e2e;
 
-  /* Carbón / texto */
-  --color-ink: #2b2b2e;
-  --color-ink-soft: #4a4a4f;
-  --color-ink-mute: #6f6f76;
+  /* Texto */
+  --color-text:         #f5f5f5;
+  --color-text-soft:    #c0c0c0;
+  --color-text-mute:    #909096;
 
-  /* Dorado suave */
-  --color-gold: #c9a96a;
-  --color-gold-soft: #d8c094;
-  --color-gold-pale: #ece1c8;
+  /* Acentos */
+  --color-gold:         #d4af37;
+  --color-gold-soft:    #e6c668;
+  --color-gold-deep:    #a88729;
+  --color-gold-pale:    #f0d98c;
+  --color-silver:       #c0c0c0;
+  --color-silver-soft:  #9a9aa0;
+
+  /* Aliases legacy (compat con CSS existente) */
+  --color-ink:          var(--color-text);
+  --color-ink-soft:     var(--color-text-soft);
+  --color-ink-mute:     var(--color-text-mute);
+  --color-silver-100:   var(--color-line);
+  --color-silver-200:   #3a3a3a;
+  --color-silver-300:   var(--color-silver-soft);
+  --color-silver-400:   var(--color-silver);
+  --color-silver-500:   var(--color-text-soft);
+
+  /* Bordes */
+  --border-gold:        rgba(212, 175, 55, 0.3);
+  --border-gold-soft:   rgba(212, 175, 55, 0.15);
+  --border-light:       rgba(255, 255, 255, 0.08);
 
   /* Gradientes */
-  --gradient-silver: linear-gradient(135deg, #f4f4f6 0%, #d8d8dc 45%, #b8b8bd 100%);
-  --gradient-gold: linear-gradient(135deg, #ece1c8 0%, #d8c094 50%, #c9a96a 100%);
-  --gradient-hero: linear-gradient(
-    180deg,
-    rgba(251, 251, 252, 0.96) 0%,
-    rgba(244, 244, 246, 0.9) 60%,
-    rgba(236, 236, 239, 0.85) 100%
-  );
+  --gradient-gold: linear-gradient(135deg, #f0d98c 0%, #d4af37 50%, #a88729 100%);
+  --gradient-silver: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #8a8a8a 100%);
+  --gradient-dark: linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.9) 100%);
+  --gradient-hero-overlay: linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.65) 60%, rgba(10,10,10,0.85) 100%);
 
   /* Sombras */
-  --shadow-sm: 0 1px 2px rgba(43, 43, 46, 0.04), 0 1px 3px rgba(43, 43, 46, 0.06);
-  --shadow-md: 0 4px 12px rgba(43, 43, 46, 0.06), 0 2px 4px rgba(43, 43, 46, 0.04);
-  --shadow-lg: 0 20px 40px rgba(43, 43, 46, 0.08), 0 8px 16px rgba(43, 43, 46, 0.05);
-  --shadow-xl: 0 30px 60px rgba(43, 43, 46, 0.14), 0 14px 28px rgba(43, 43, 46, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 8px 24px rgba(212, 175, 55, 0.18);
 
   /* Tipografía */
   --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Espaciados y curvas */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  /* Radios y curvas */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
   --radius-pill: 999px;
 
-  --container: 1200px;
+  /* Layout */
+  --container: 1280px;
   --container-narrow: 960px;
 
-  --transition-base: 320ms cubic-bezier(0.22, 1, 0.36, 1);
-  --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Transiciones (cubic-bezier(0.4, 0, 0.2, 1) por defecto) */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms var(--ease);
+  --transition-slow: 600ms var(--ease);
 
-  /* Touch targets */
   --touch-min: 44px;
 }
 
-/* Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* — Reset — */
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  background-color: var(--color-bg);
 }
 
 body {
@@ -78,7 +89,7 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.65;
-  color: var(--color-ink);
+  color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,9 +97,7 @@ body {
   overflow-x: hidden;
 }
 
-img,
-picture,
-video {
+img, picture, video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -99,6 +108,7 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  color: inherit;
 }
 
 a {
@@ -107,71 +117,71 @@ a {
   transition: color var(--transition-base);
 }
 
+/* Headings escalados según spec (Mobile / Desktop):
+   H1: 32 / 64, H2: 24 / 42, H3: 20 / 28, body: 16 / 18 */
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--color-ink);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
   margin: 0 0 0.6em;
-  line-height: 1.18;
+  line-height: 1.15;
 }
 
-h1 { font-size: clamp(1.75rem, 4vw + 1rem, 4.6rem); font-weight: 400; }
-h2 { font-size: clamp(1.5rem, 3vw + 1rem, 3.2rem); }
-h3 { font-size: clamp(1.15rem, 1.4vw + 0.7rem, 1.9rem); }
+h1 { font-size: clamp(2rem, 5vw + 0.5rem, 4rem); }
+h2 { font-size: clamp(1.5rem, 3vw + 0.5rem, 2.6rem); }
+h3 { font-size: clamp(1.25rem, 1.4vw + 0.5rem, 1.75rem); }
 
 p {
   margin: 0 0 1rem;
-  color: var(--color-ink-soft);
+  color: var(--color-text-soft);
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
 }
 
-/* Foco accesible */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+/* — Foco accesible — */
 :focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Helpers de layout */
+/* — Layout helpers — */
 .container {
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 5vw, 2.5rem);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
 
 .container-narrow {
   width: 100%;
   max-width: var(--container-narrow);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 5vw, 2.5rem);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
 
 .section {
-  padding-block: clamp(3rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 7vw, 6.5rem);
   position: relative;
-}
-
-/* Mobile: secciones más compactas y padding 16px garantizado */
-@media (max-width: 480px) {
-  .container,
-  .container-narrow {
-    padding-inline: 1rem;
-  }
-
-  .section {
-    padding-block: 2.5rem;
-  }
 }
 
 .section-alt {
   background: var(--color-bg-alt);
 }
 
+.section-soft {
+  background: var(--color-bg-soft);
+}
+
 .eyebrow {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-gold);
@@ -184,32 +194,34 @@ p {
   font-style: italic;
   font-weight: 400;
   text-align: center;
+  color: var(--color-text);
 }
 
 .section-title::after {
   content: '';
   display: block;
-  width: 56px;
+  width: 48px;
   height: 1px;
   margin: 1rem auto 0;
   background: var(--gradient-gold);
 }
 
 .lead {
-  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.1rem);
-  color: var(--color-ink-soft);
-  max-width: 720px;
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
+  color: var(--color-text-soft);
+  max-width: 680px;
   margin-inline: auto;
   text-align: center;
+  line-height: 1.7;
 }
 
-/* Botones — touch targets mínimo 44px */
+/* — Botones — */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 0.85rem 1.8rem;
+  padding: 0.85rem 1.6rem;
   min-height: var(--touch-min);
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
@@ -224,72 +236,63 @@ p {
 }
 
 .btn-primary {
-  background: var(--color-ink);
-  color: #fff;
-  box-shadow: var(--shadow-md);
+  background: var(--gradient-gold);
+  color: #1a1a1a;
+  box-shadow: var(--shadow-gold);
+  font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: #1a1a1c;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.32);
 }
 
 .btn-outline {
-  border: 1px solid var(--color-silver-300);
-  color: var(--color-ink);
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-gold);
+  color: var(--color-text);
+  background: transparent;
 }
 
 .btn-outline:hover {
   border-color: var(--color-gold);
   color: var(--color-gold);
-  background: #fff;
+  background: rgba(212, 175, 55, 0.06);
 }
 
 .btn-gold {
   background: var(--gradient-gold);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(201, 169, 106, 0.25);
+  color: #1a1a1a;
+  box-shadow: var(--shadow-gold);
+  font-weight: 600;
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(201, 169, 106, 0.35);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.35);
 }
 
-/* Animación de entrada */
+/* — Animaciones — */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes shimmer {
-  0% { background-position: -1000px 0; }
+  0%   { background-position: -1000px 0; }
   100% { background-position: 1000px 0; }
 }
 
-.fade-up {
-  animation: fadeUp var(--transition-slow) both;
-}
+.fade-up { animation: fadeUp var(--transition-slow) both; }
 
-/* Reveal on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 800ms ease, transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 800ms ease, transform 800ms var(--ease);
 }
 
 .reveal.is-visible {
@@ -297,19 +300,19 @@ p {
   transform: none;
 }
 
-/* Skeleton para imágenes en lazy load */
+/* — Skeleton — */
 .skeleton {
   background: linear-gradient(
     90deg,
-    var(--color-pearl) 0%,
-    #f7f7f8 50%,
-    var(--color-pearl) 100%
+    var(--color-bg-soft) 0%,
+    var(--color-pearl) 50%,
+    var(--color-bg-soft) 100%
   );
   background-size: 1000px 100%;
   animation: shimmer 1.6s linear infinite;
 }
 
-/* Skip link / utilidades a11y */
+/* — Skip link / a11y — */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -331,45 +334,37 @@ p {
   height: auto;
   clip: auto;
   padding: 0.75rem 1.2rem;
-  background: var(--color-ink);
-  color: #fff;
+  background: var(--color-gold);
+  color: var(--color-bg);
   border-radius: var(--radius-pill);
   z-index: 1000;
 }
 
-/* Selección de texto */
-::selection {
-  background: var(--color-gold-pale);
-  color: var(--color-ink);
-}
-
-/* Scrollbar discreta */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track { background: var(--color-bg-alt); }
+/* — Scrollbar — */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-silver-200);
+  background: var(--color-pearl);
   border-radius: 999px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-silver-300); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-deep); }
 
-/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Mobile: stack buttons full-width cuando están solos */
+/* Mobile (≤480): padding 16px y secciones más compactas */
 @media (max-width: 480px) {
-  .btn {
-    font-size: 1rem;
-    padding: 0.9rem 1.6rem;
+  .container,
+  .container-narrow {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding-block: 2.5rem;
   }
 }

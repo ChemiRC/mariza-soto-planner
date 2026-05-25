@@ -1,50 +1,58 @@
 import data from '../../data/events.json';
+import { featured } from '../../data/galleryManifest';
 import './Hero.css';
+
+// Cycling background images from featured portfolio
+const heroImages = featured.slice(0, 4).map((f) => f.src);
 
 export default function Hero() {
   return (
     <section className="hero" id="inicio">
       <div className="hero__bg" aria-hidden="true">
-        <div className="hero__bg-image" />
+        {heroImages.map((src, i) => (
+          <div
+            key={src}
+            className="hero__bg-slide"
+            style={{
+              backgroundImage: `url("${src}")`,
+              animationDelay: `${i * 6}s`,
+            }}
+          />
+        ))}
         <div className="hero__bg-overlay" />
       </div>
 
       <div className="container hero__inner">
-        <span className="eyebrow hero__eyebrow fade-up" style={{ animationDelay: '0.05s' }}>
+        <span className="hero__eyebrow fade-up" style={{ animationDelay: '0.05s' }}>
           {data.company.yearsOfExperience} años creando momentos eternos
         </span>
 
-        <h1 className="hero__title fade-up" style={{ animationDelay: '0.15s' }}>
-          Tu evento, <em>una historia</em><br />que merece ser contada.
+        <h1 className="hero__title fade-up" style={{ animationDelay: '0.2s' }}>
+          {data.company.name}
         </h1>
 
-        <p className="hero__lead fade-up" style={{ animationDelay: '0.25s' }}>
-          {data.company.name} es un estudio de planeación integral de eventos en {data.company.location}.
-          Diseñamos bodas, baby showers, bautizos, primeras comuniones, cumpleaños,
-          fiestas infantiles y graduaciones con la atención al detalle que tu celebración merece.
+        <p className="hero__lead fade-up" style={{ animationDelay: '0.35s' }}>
+          {data.company.tagline}
         </p>
 
-        <div className="hero__cta fade-up" style={{ animationDelay: '0.35s' }}>
-          <a href="#eventos" className="btn btn-primary">
-            Ver nuestro portafolio
+        <div className="hero__cta fade-up" style={{ animationDelay: '0.5s' }}>
+          <a href="#destacados" className="btn btn-primary">
+            Descubre nuestro trabajo
           </a>
-          <a href="#contacto" className="btn btn-outline">
-            Cotizar mi evento
+          <a
+            href={`https://wa.me/${data.company.whatsapp}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="btn btn-outline"
+          >
+            Cotiza tu evento
           </a>
         </div>
-
-        <ul className="hero__stats fade-up" style={{ animationDelay: '0.45s' }}>
-          {data.stats.map((s) => (
-            <li key={s.label}>
-              <span className="hero__stat-number">{s.number}</span>
-              <span className="hero__stat-label">{s.label}</span>
-            </li>
-          ))}
-        </ul>
       </div>
 
-      <a className="hero__scroll" href="#sobre-nosotros" aria-label="Bajar a la siguiente sección">
-        <span /> Descubre más
+      <a className="hero__scroll" href="#impacto" aria-label="Bajar a la siguiente sección">
+        <span className="hero__scroll-line" />
+        <span className="hero__scroll-text">Scroll</span>
       </a>
     </section>
   );

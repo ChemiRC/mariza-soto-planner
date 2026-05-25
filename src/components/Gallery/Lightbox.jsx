@@ -62,9 +62,17 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }) {
             controls
             autoPlay
             playsInline
+            controlsList="nodownload"
+            onContextMenu={(e) => e.preventDefault()}
           />
         ) : (
-          <img src={item.src} alt={item.alt || ''} loading="eager" />
+          <img
+            src={item.src}
+            alt={item.alt || ''}
+            loading="eager"
+            draggable="false"
+            onContextMenu={(e) => e.preventDefault()}
+          />
         )}
         {item.alt && <p className="lightbox__caption">{item.alt}</p>}
         <p className="lightbox__counter">

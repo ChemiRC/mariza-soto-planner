@@ -4,8 +4,8 @@
   z-index: 200;
   display: grid;
   place-items: center;
-  background: rgba(20, 20, 22, 0.92);
-  backdrop-filter: blur(6px);
+  background: rgba(5, 5, 7, 0.96);
+  backdrop-filter: blur(8px);
   animation: fadeIn 220ms ease both;
 }
 
@@ -20,7 +20,7 @@
 
 .lightbox__content {
   position: relative;
-  max-width: min(92vw, 1100px);
+  max-width: min(94vw, 1100px);
   max-height: 86vh;
   display: flex;
   flex-direction: column;
@@ -36,26 +36,30 @@
   height: auto;
   object-fit: contain;
   border-radius: var(--radius-md);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .lightbox__caption {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
+  color: var(--color-text-soft);
+  font-size: 0.92rem;
   margin: 0;
   text-align: center;
   max-width: 60ch;
+  font-style: italic;
+  font-family: var(--font-serif);
 }
 
 .lightbox__counter {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  font-size: 0.74rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   margin: 0;
 }
 
-/* Botones */
+/* — Close button — */
 .lightbox__close {
   position: absolute;
   top: 1.5rem;
@@ -63,26 +67,30 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   transition: all var(--transition-base);
+  touch-action: manipulation;
 }
 
 .lightbox__close:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--color-gold);
+  color: var(--color-bg);
   transform: rotate(90deg);
+  border-color: var(--color-gold);
 }
 
 .lightbox__close span {
   position: absolute;
   inset: 50% 28% auto 28%;
   height: 1.5px;
-  background: #fff;
+  background: currentColor;
 }
 .lightbox__close span:first-child { transform: rotate(45deg); }
 .lightbox__close span:last-child  { transform: rotate(-45deg); }
 
+/* — Navigation — */
 .lightbox__nav {
   position: absolute;
   top: 50%;
@@ -90,20 +98,22 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-family: var(--font-serif);
   line-height: 1;
   display: grid;
   place-items: center;
   padding-bottom: 6px;
   transition: all var(--transition-base);
+  touch-action: manipulation;
 }
 
 .lightbox__nav:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--color-gold);
+  color: var(--color-bg);
   border-color: var(--color-gold);
 }
 
@@ -126,7 +136,7 @@
 
   .lightbox__content img,
   .lightbox__content video {
-    max-height: 70vh;
+    max-height: 68vh;
     border-radius: var(--radius-sm);
   }
 
@@ -142,7 +152,7 @@
   .lightbox__nav--next { right: 1.5rem; }
 
   .lightbox__caption {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     padding: 0 1rem;
   }
 }

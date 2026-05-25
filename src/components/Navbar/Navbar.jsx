@@ -3,11 +3,11 @@ import data from '../../data/events.json';
 import './Navbar.css';
 
 const navItems = [
-  { id: 'sobre-nosotros', label: 'Nosotros' },
-  { id: 'destacados',     label: 'Destacados' },
+  { id: 'destacados',     label: 'Portafolio' },
   { id: 'eventos',        label: 'Eventos' },
+  { id: 'sobre-nosotros', label: 'Nosotros' },
   { id: 'servicios',      label: 'Servicios' },
-  { id: 'testimonios',    label: 'Testimonios' },
+  { id: 'contacto',       label: 'Contacto' },
 ];
 
 export default function Navbar() {

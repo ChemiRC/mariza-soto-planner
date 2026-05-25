@@ -1,10 +1,10 @@
 {
   "company": {
     "name": "Mariza Soto Planner",
-    "tagline": "Eventos inolvidables, diseñados con alma",
+    "tagline": "Donde cada momento se vuelve inolvidable",
     "yearsOfExperience": 15,
     "location": "Guadalajara, Jalisco",
-    "coverage": "Disponibles para viajar a cualquier ubicación de la República",
+    "coverage": "Disponibles para viajar a cualquier rincón de la República",
     "phone": "+52 33 0000 0000",
     "whatsapp": "523300000000",
     "email": "contacto@marizasotoplanner.com",
@@ -14,10 +14,18 @@
   },
   "stats": [
     { "number": "15+", "label": "Años de experiencia" },
-    { "number": "850+", "label": "Eventos realizados" },
-    { "number": "100%", "label": "Clientes felices" },
-    { "number": "32",   "label": "Estados visitados" }
+    { "number": "500+", "label": "Eventos realizados" },
+    { "number": "100%", "label": "Clientes satisfechos" }
   ],
+  "about": {
+    "headline": "Hace 15 años, en Guadalajara, comenzó un sueño.",
+    "paragraphs": [
+      "Lo que empezó como pasión por celebrar la vida se convirtió en un estudio creativo que diseña eventos a la medida de cada historia.",
+      "Coordinamos cada flor, cada vela, cada brindis. Cada detalle existe por una razón: hacer que tus invitados vivan una experiencia que recordarán por años.",
+      "Trabajamos desde Guadalajara y viajamos a cualquier rincón de la República. Si lo imaginas, lo producimos."
+    ],
+    "signature": "Mariza Soto"
+  },
   "services": [
     {
       "id": "mobiliario",
@@ -115,6 +123,11 @@
       "name": "Mariana Pérez",
       "event": "XV años — Zapopan",
       "quote": "Profesionalismo de principio a fin. Mariza entendió a la perfección lo que mi hija imaginaba."
+    },
+    {
+      "name": "Sofía & Diego",
+      "event": "Boda — Riviera Nayarit",
+      "quote": "Coordinó nuestro destination wedding desde Guadalajara y todo salió impecable. La recomiendo con los ojos cerrados."
     }
   ]
 }

@@ -78,6 +78,9 @@ export default function Categories() {
                   ) : (
                     <span className="cat-card__count">Próximamente</span>
                   )}
+                  {count > 0 && (
+                    <span className="cat-card__cta">Ver galería →</span>
+                  )}
                 </span>
               </button>
             );

@@ -1,9 +1,10 @@
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import Stats from './components/Stats/Stats';
 import Featured from './components/Featured/Featured';
-import Services from './components/Services/Services';
 import Categories from './components/Gallery/Categories';
+import About from './components/About/About';
+import Services from './components/Services/Services';
 import Testimonials from './components/Testimonials/Testimonials';
 import Cta from './components/Cta/Cta';
 import Footer from './components/Footer/Footer';
@@ -20,9 +21,10 @@ export default function App() {
       <Navbar />
       <main id="contenido-principal">
         <Hero />
-        <About />
+        <Stats />
         <Featured />
         <Categories />
+        <About />
         <Services />
         <Testimonials />
         <Cta />
