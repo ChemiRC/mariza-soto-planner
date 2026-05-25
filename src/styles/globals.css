@@ -116,9 +116,9 @@ h1, h2, h3, h4 {
   line-height: 1.18;
 }
 
-h1 { font-size: clamp(2rem, 5vw + 1rem, 4.6rem); font-weight: 400; }
-h2 { font-size: clamp(1.8rem, 3vw + 1rem, 3.2rem); }
-h3 { font-size: clamp(1.2rem, 1.4vw + 0.8rem, 1.9rem); }
+h1 { font-size: clamp(1.75rem, 4vw + 1rem, 4.6rem); font-weight: 400; }
+h2 { font-size: clamp(1.5rem, 3vw + 1rem, 3.2rem); }
+h3 { font-size: clamp(1.15rem, 1.4vw + 0.7rem, 1.9rem); }
 
 p {
   margin: 0 0 1rem;
@@ -148,8 +148,20 @@ p {
 }
 
 .section {
-  padding-block: clamp(3.5rem, 8vw, 7rem);
+  padding-block: clamp(3rem, 7vw, 7rem);
   position: relative;
+}
+
+/* Mobile: secciones más compactas y padding 16px garantizado */
+@media (max-width: 480px) {
+  .container,
+  .container-narrow {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding-block: 2.5rem;
+  }
 }
 
 .section-alt {

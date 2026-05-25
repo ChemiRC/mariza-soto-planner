@@ -4,8 +4,9 @@ import './Navbar.css';
 
 const navItems = [
   { id: 'sobre-nosotros', label: 'Nosotros' },
-  { id: 'servicios',      label: 'Servicios' },
+  { id: 'destacados',     label: 'Destacados' },
   { id: 'eventos',        label: 'Eventos' },
+  { id: 'servicios',      label: 'Servicios' },
   { id: 'testimonios',    label: 'Testimonios' },
 ];
 

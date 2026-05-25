@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
+import Featured from './components/Featured/Featured';
 import Services from './components/Services/Services';
 import Categories from './components/Gallery/Categories';
 import Testimonials from './components/Testimonials/Testimonials';
@@ -20,8 +21,9 @@ export default function App() {
       <main id="contenido-principal">
         <Hero />
         <About />
-        <Services />
+        <Featured />
         <Categories />
+        <Services />
         <Testimonials />
         <Cta />
       </main>

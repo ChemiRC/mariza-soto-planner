@@ -1,20 +1,31 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import data from '../../data/events.json';
+import { galleries, covers } from '../../data/galleryManifest';
 import GalleryItem from './GalleryItem';
 import Lightbox from './Lightbox';
 import './Categories.css';
 
+const PREVIEW_COUNT = 8;
+
 export default function Categories() {
   const categories = data.categories;
   const [activeId, setActiveId] = useState(categories[0].id);
+  const [expanded, setExpanded] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const galleryRef = useRef(null);
 
   const activeCategory = useMemo(
     () => categories.find((c) => c.id === activeId) || categories[0],
     [activeId, categories]
   );
 
-  const gallery = activeCategory.gallery || [];
+  const gallery = galleries[activeCategory.id] || [];
+  const hasMore = gallery.length > PREVIEW_COUNT;
+  const visibleGallery = expanded || !hasMore ? gallery : gallery.slice(0, PREVIEW_COUNT);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [activeId]);
 
   const openLightbox = (i) => setLightboxIndex(i);
   const closeLightbox = () => setLightboxIndex(null);
@@ -23,48 +34,70 @@ export default function Categories() {
   const goNext = () =>
     setLightboxIndex((i) => (i === gallery.length - 1 ? 0 : i + 1));
 
+  const selectCategory = (id) => {
+    setActiveId(id);
+    setTimeout(() => {
+      galleryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  };
+
   return (
-    <section className="categories section" id="eventos">
+    <section className="categories section" id="eventos" aria-labelledby="categories-title">
       <div className="container">
         <span className="eyebrow" style={{ display: 'block', textAlign: 'center' }}>
           Portafolio
         </span>
-        <h2 className="section-title">Eventos que hemos creado</h2>
+        <h2 className="section-title" id="categories-title">Explora nuestras categorías</h2>
         <p className="lead">
-          Explora nuestro trabajo por categoría. Cada evento es una historia diferente,
-          pensada para sus protagonistas.
+          Cada evento es una historia diferente, pensada para sus protagonistas.
+          Selecciona una categoría para ver el trabajo.
         </p>
 
-        {/* Tabs */}
-        <div className="categories__tabs" role="tablist" aria-label="Categorías de eventos">
-          {categories.map((c) => (
-            <button
-              key={c.id}
-              role="tab"
-              aria-selected={activeId === c.id}
-              aria-controls={`panel-${c.id}`}
-              id={`tab-${c.id}`}
-              className={`tab ${activeId === c.id ? 'is-active' : ''}`}
-              onClick={() => setActiveId(c.id)}
-            >
-              {c.name}
-            </button>
-          ))}
+        {/* Cards de categorías con imagen de fondo */}
+        <div className="cat-cards" role="tablist" aria-label="Categorías de eventos">
+          {categories.map((c) => {
+            const cover = covers[c.id];
+            const count = (galleries[c.id] || []).length;
+            const isActive = activeId === c.id;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls="category-gallery"
+                className={`cat-card ${isActive ? 'is-active' : ''} ${!cover ? 'is-empty' : ''}`}
+                onClick={() => selectCategory(c.id)}
+                style={cover ? { backgroundImage: `url("${cover}")` } : undefined}
+              >
+                <span className="cat-card__overlay" aria-hidden="true" />
+                <span className="cat-card__content">
+                  <span className="cat-card__name">{c.name}</span>
+                  {count > 0 ? (
+                    <span className="cat-card__count">{count} fotos</span>
+                  ) : (
+                    <span className="cat-card__count">Próximamente</span>
+                  )}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Panel */}
+        {/* Galería de la categoría activa */}
         <div
+          ref={galleryRef}
           className="categories__panel"
           role="tabpanel"
-          id={`panel-${activeCategory.id}`}
+          id="category-gallery"
           aria-labelledby={`tab-${activeCategory.id}`}
           key={activeCategory.id}
         >
-          <div className="panel__header">
+          <header className="panel__header">
             <h3 className="panel__title">{activeCategory.name}</h3>
             <p className="panel__description">{activeCategory.description}</p>
 
-            {activeCategory.services && activeCategory.services.length > 0 && (
+            {activeCategory.services?.length > 0 && (
               <ul className="panel__services" aria-label="Servicios incluidos">
                 {activeCategory.services.map((s) => (
                   <li key={s}>
@@ -74,21 +107,47 @@ export default function Categories() {
                 ))}
               </ul>
             )}
-          </div>
+          </header>
 
           {gallery.length > 0 ? (
-            <div className="gallery-grid">
-              {gallery.map((item, idx) => (
-                <GalleryItem
-                  key={`${activeCategory.id}-${idx}`}
-                  item={item}
-                  index={idx}
-                  onOpen={openLightbox}
-                />
-              ))}
-            </div>
+            <>
+              <div className="masonry">
+                {visibleGallery.map((item, idx) => (
+                  <div className="masonry__item" key={`${activeCategory.id}-${idx}`}>
+                    <GalleryItem
+                      item={item}
+                      index={idx}
+                      onOpen={openLightbox}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {hasMore && (
+                <div className="panel__actions">
+                  <button
+                    type="button"
+                    className="btn btn-outline"
+                    onClick={() => setExpanded((v) => !v)}
+                    aria-expanded={expanded}
+                  >
+                    {expanded ? 'Ver menos' : `Ver más (${gallery.length - PREVIEW_COUNT})`}
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-            <p className="gallery-empty">Próximamente compartiremos imágenes de esta categoría.</p>
+            <div className="gallery-empty">
+              <p>Próximamente compartiremos imágenes de esta categoría.</p>
+              <a
+                href={`https://wa.me/${data.company.whatsapp}`}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn btn-outline"
+              >
+                Consultar disponibilidad
+              </a>
+            </div>
           )}
         </div>
       </div>
