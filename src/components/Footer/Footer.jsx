@@ -1,4 +1,5 @@
 import data from '../../data/events.json';
+import { whatsappUrl } from '../../utils/whatsapp';
 import './Footer.css';
 
 const InstagramIcon = () => (
@@ -49,7 +50,7 @@ export default function Footer() {
           <a href={company.instagram} aria-label="Instagram" target="_blank" rel="noreferrer noopener"><InstagramIcon /></a>
           <a href={company.facebook} aria-label="Facebook" target="_blank" rel="noreferrer noopener"><FacebookIcon /></a>
           <a href={company.tiktok} aria-label="TikTok" target="_blank" rel="noreferrer noopener"><TikTokIcon /></a>
-          <a href={`https://wa.me/${company.whatsapp}`} aria-label="WhatsApp" target="_blank" rel="noreferrer noopener"><WhatsAppIcon /></a>
+          <a href={whatsappUrl()} aria-label="WhatsApp" target="_blank" rel="noreferrer noopener"><WhatsAppIcon /></a>
         </div>
 
         <p className="footer__location">{company.location} · {company.coverage}</p>
@@ -64,7 +65,7 @@ export default function Footer() {
 
       {/* WhatsApp flotante */}
       <a
-        href={`https://wa.me/${company.whatsapp}`}
+        href={whatsappUrl()}
         className="float-wa"
         target="_blank"
         rel="noreferrer noopener"

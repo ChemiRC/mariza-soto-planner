@@ -1,5 +1,6 @@
 import data from '../../data/events.json';
 import { featured } from '../../data/galleryManifest';
+import { whatsappUrl } from '../../utils/whatsapp';
 import './Hero.css';
 
 // Cycling background images from featured portfolio
@@ -40,7 +41,7 @@ export default function Hero() {
             Descubre nuestro trabajo
           </a>
           <a
-            href={`https://wa.me/${data.company.whatsapp}`}
+            href={whatsappUrl()}
             target="_blank"
             rel="noreferrer noopener"
             className="btn btn-outline"

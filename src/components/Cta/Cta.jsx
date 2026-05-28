@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import data from '../../data/events.json';
 import { featured } from '../../data/galleryManifest';
+import { whatsappUrl } from '../../utils/whatsapp';
 import './Cta.css';
 
 const WhatsAppIcon = () => (
@@ -57,8 +58,7 @@ export default function Cta() {
       .filter(Boolean)
       .join(' ');
 
-    const url = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(whatsappUrl(text), '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -84,7 +84,7 @@ export default function Cta() {
 
           <div className="cta-section__quick">
             <a
-              href={`https://wa.me/${company.whatsapp}`}
+              href={whatsappUrl()}
               target="_blank"
               rel="noreferrer noopener"
               className="quick quick--wa"

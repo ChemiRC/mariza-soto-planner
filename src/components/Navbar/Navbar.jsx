@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import data from '../../data/events.json';
+import { whatsappUrl } from '../../utils/whatsapp';
 import './Navbar.css';
 
 const navItems = [
@@ -55,7 +55,7 @@ export default function Navbar() {
 
           <a
             className="btn btn-gold navbar__cta-mobile"
-            href={`https://wa.me/${data.company.whatsapp}`}
+            href={whatsappUrl()}
             target="_blank"
             rel="noreferrer noopener"
             onClick={closeMenu}
@@ -66,7 +66,7 @@ export default function Navbar() {
 
         <a
           className="btn btn-gold navbar__cta"
-          href={`https://wa.me/${data.company.whatsapp}`}
+          href={whatsappUrl()}
           target="_blank"
           rel="noreferrer noopener"
         >
