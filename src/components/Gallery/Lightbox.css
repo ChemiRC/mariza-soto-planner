@@ -7,6 +7,8 @@
   background: rgba(5, 5, 7, 0.96);
   backdrop-filter: blur(8px);
   animation: fadeIn 220ms ease both;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .lightbox__backdrop {
@@ -26,6 +28,17 @@
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
+  will-change: transform, opacity;
+  touch-action: none;
+}
+
+.lightbox__content img {
+  touch-action: none;
+}
+
+/* Videos keep their native gesture controls (scrubber, tap-to-pause). */
+.lightbox__content video {
+  touch-action: auto;
 }
 
 .lightbox__content img,
@@ -57,6 +70,21 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   margin: 0;
+}
+
+.lightbox__hint {
+  display: none;
+  color: var(--color-text-mute);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+  opacity: 0.7;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .lightbox__hint { display: block; }
 }
 
 /* — Close button — */
