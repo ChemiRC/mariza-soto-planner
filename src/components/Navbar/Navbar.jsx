@@ -10,6 +10,8 @@ const navItems = [
   { id: 'contacto',       label: 'Contacto' },
 ];
 
+// (Testimonials section removed; the contact CTA already serves social proof.)
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

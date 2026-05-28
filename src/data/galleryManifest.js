@@ -58,11 +58,12 @@ const babyshowers = [
   'WhatsApp Image 2026-05-24 at 11.57.42 AM (6).jpeg',
 ].map((file, i) => make('babyshowers', file, `Baby shower con decoración pastel — detalle ${i + 1}`));
 
+// Usamos la primera imagen del set como poster del video (preview en grid).
 babyshowers.push(
   video(
     'babyshowers',
     'WhatsApp Video 2026-05-24 at 11.57.42 AM.mp4',
-    null,
+    'WhatsApp Image 2026-05-24 at 11.57.42 AM.jpeg',
     'Video de baby shower diseñado por Mariza Soto Planner'
   )
 );
@@ -121,30 +122,18 @@ const fiestasInfantiles = [
   'WhatsApp Image 2026-05-24 at 11.11.01 AM (3).jpeg',
 ].map((file, i) => make('fiestas-infantiles', file, `Fiesta infantil temática diseñada por Mariza Soto Planner — ${i + 1}`));
 
-// ============================================================
-//  CATEGORÍAS SIN ASSETS (placeholders vacíos por ahora)
-// ============================================================
 export const galleries = {
   bodas,
   'baby-showers': babyshowers,
   bautizos,
   'fiestas-infantiles': fiestasInfantiles,
-  'primeras-comuniones': [],
-  cumpleanos: [],
-  graduaciones: [],
 };
 
-/**
- * Cover (imagen de portada) de cada categoría — usada en los cards.
- */
 export const covers = {
   bodas: bodas[0]?.src,
   'baby-showers': babyshowers[0]?.src,
   bautizos: bautizos[0]?.src,
   'fiestas-infantiles': fiestasInfantiles[0]?.src,
-  'primeras-comuniones': null,
-  cumpleanos: null,
-  graduaciones: null,
 };
 
 /**

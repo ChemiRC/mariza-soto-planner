@@ -84,50 +84,10 @@
       "services": ["Mobiliario", "Decoración", "Banquete", "Mesa de quesos"]
     },
     {
-      "id": "primeras-comuniones",
-      "name": "Primeras Comuniones",
-      "description": "Diseños sobrios y luminosos para esta celebración familiar tan especial.",
-      "services": ["Mobiliario", "Decoración", "Banquete", "Candy Bar"]
-    },
-    {
-      "id": "cumpleanos",
-      "name": "Cumpleaños",
-      "description": "Desde reuniones íntimas hasta celebraciones temáticas; tu día, tu estilo.",
-      "services": ["Mobiliario", "Decoración", "Banquete", "Candy Bar", "Mesa de quesos"]
-    },
-    {
       "id": "fiestas-infantiles",
       "name": "Fiestas Infantiles",
       "description": "Mundos mágicos diseñados para que los más pequeños vivan una aventura inolvidable.",
       "services": ["Mobiliario", "Decoración", "Candy Bar", "Banquete"]
-    },
-    {
-      "id": "graduaciones",
-      "name": "Graduaciones",
-      "description": "Cerramos un ciclo a la altura del esfuerzo: cenas elegantes y producción impecable.",
-      "services": ["Mobiliario", "Decoración", "Banquete", "Mesa de quesos"]
-    }
-  ],
-  "testimonials": [
-    {
-      "name": "Andrea & Carlos",
-      "event": "Boda — Chapala, Jalisco",
-      "quote": "Mariza convirtió cada idea en realidad. Su equipo cuidó cada flor, cada vela y cada brindis. Nuestra boda fue un sueño."
-    },
-    {
-      "name": "Familia Ruvalcaba",
-      "event": "Bautizo — Guadalajara",
-      "quote": "Atención al detalle impecable. Nuestros invitados aún recuerdan la mesa de quesos y la decoración."
-    },
-    {
-      "name": "Mariana Pérez",
-      "event": "XV años — Zapopan",
-      "quote": "Profesionalismo de principio a fin. Mariza entendió a la perfección lo que mi hija imaginaba."
-    },
-    {
-      "name": "Sofía & Diego",
-      "event": "Boda — Riviera Nayarit",
-      "quote": "Coordinó nuestro destination wedding desde Guadalajara y todo salió impecable. La recomiendo con los ojos cerrados."
     }
   ]
 }

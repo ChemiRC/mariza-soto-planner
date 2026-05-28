@@ -8,8 +8,13 @@ import './Categories.css';
 const PREVIEW_COUNT = 8;
 
 export default function Categories() {
-  const categories = data.categories;
-  const [activeId, setActiveId] = useState(categories[0].id);
+  // Sólo mostramos categorías con al menos una foto.
+  const categories = useMemo(
+    () => data.categories.filter((c) => (galleries[c.id] || []).length > 0),
+    []
+  );
+
+  const [activeId, setActiveId] = useState(categories[0]?.id);
   const [expanded, setExpanded] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const galleryRef = useRef(null);
@@ -19,13 +24,15 @@ export default function Categories() {
     [activeId, categories]
   );
 
-  const gallery = galleries[activeCategory.id] || [];
+  const gallery = activeCategory ? galleries[activeCategory.id] || [] : [];
   const hasMore = gallery.length > PREVIEW_COUNT;
   const visibleGallery = expanded || !hasMore ? gallery : gallery.slice(0, PREVIEW_COUNT);
 
   useEffect(() => {
     setExpanded(false);
   }, [activeId]);
+
+  if (!activeCategory) return null;
 
   const openLightbox = (i) => setLightboxIndex(i);
   const closeLightbox = () => setLightboxIndex(null);
@@ -53,7 +60,6 @@ export default function Categories() {
           Selecciona una categoría para ver el trabajo.
         </p>
 
-        {/* Cards de categorías con imagen de fondo */}
         <div className="cat-cards" role="tablist" aria-label="Categorías de eventos">
           {categories.map((c) => {
             const cover = covers[c.id];
@@ -66,28 +72,21 @@ export default function Categories() {
                 role="tab"
                 aria-selected={isActive}
                 aria-controls="category-gallery"
-                className={`cat-card ${isActive ? 'is-active' : ''} ${!cover ? 'is-empty' : ''}`}
+                className={`cat-card ${isActive ? 'is-active' : ''}`}
                 onClick={() => selectCategory(c.id)}
                 style={cover ? { backgroundImage: `url("${cover}")` } : undefined}
               >
                 <span className="cat-card__overlay" aria-hidden="true" />
                 <span className="cat-card__content">
                   <span className="cat-card__name">{c.name}</span>
-                  {count > 0 ? (
-                    <span className="cat-card__count">{count} fotos</span>
-                  ) : (
-                    <span className="cat-card__count">Próximamente</span>
-                  )}
-                  {count > 0 && (
-                    <span className="cat-card__cta">Ver galería →</span>
-                  )}
+                  <span className="cat-card__count">{count} fotos</span>
+                  <span className="cat-card__cta">Ver galería →</span>
                 </span>
               </button>
             );
           })}
         </div>
 
-        {/* Galería de la categoría activa */}
         <div
           ref={galleryRef}
           className="categories__panel"
@@ -112,44 +111,28 @@ export default function Categories() {
             )}
           </header>
 
-          {gallery.length > 0 ? (
-            <>
-              <div className="masonry">
-                {visibleGallery.map((item, idx) => (
-                  <div className="masonry__item" key={`${activeCategory.id}-${idx}`}>
-                    <GalleryItem
-                      item={item}
-                      index={idx}
-                      onOpen={openLightbox}
-                    />
-                  </div>
-                ))}
+          <div className="masonry">
+            {visibleGallery.map((item, idx) => (
+              <div className="masonry__item" key={`${activeCategory.id}-${idx}`}>
+                <GalleryItem
+                  item={item}
+                  index={idx}
+                  onOpen={openLightbox}
+                />
               </div>
+            ))}
+          </div>
 
-              {hasMore && (
-                <div className="panel__actions">
-                  <button
-                    type="button"
-                    className="btn btn-outline"
-                    onClick={() => setExpanded((v) => !v)}
-                    aria-expanded={expanded}
-                  >
-                    {expanded ? 'Ver menos' : `Ver más (${gallery.length - PREVIEW_COUNT})`}
-                  </button>
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="gallery-empty">
-              <p>Próximamente compartiremos imágenes de esta categoría.</p>
-              <a
-                href={`https://wa.me/${data.company.whatsapp}`}
-                target="_blank"
-                rel="noreferrer noopener"
+          {hasMore && (
+            <div className="panel__actions">
+              <button
+                type="button"
                 className="btn btn-outline"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
               >
-                Consultar disponibilidad
-              </a>
+                {expanded ? 'Ver menos' : `Ver más (${gallery.length - PREVIEW_COUNT})`}
+              </button>
             </div>
           )}
         </div>
