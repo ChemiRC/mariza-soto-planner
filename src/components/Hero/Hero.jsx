@@ -46,7 +46,7 @@ export default function Hero() {
             rel="noreferrer noopener"
             className="btn btn-outline"
           >
-            Cotiza tu evento
+            Cotiza ahora
           </a>
         </div>
       </div>

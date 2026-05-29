@@ -79,7 +79,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
 .navbar__nav a {

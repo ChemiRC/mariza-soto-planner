@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react';
 import { whatsappUrl } from '../../utils/whatsapp';
 import './Navbar.css';
 
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16">
+    <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.4-1.4-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.1 3 2.1 3.2 5 4.4c1.8.7 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.1-.5-.3z" />
+    <path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-3-.2-.3a8.2 8.2 0 1 1 6.9 3.9z" />
+  </svg>
+);
+
 const navItems = [
   { id: 'destacados',     label: 'Portafolio' },
   { id: 'eventos',        label: 'Eventos' },
   { id: 'sobre-nosotros', label: 'Nosotros' },
   { id: 'servicios',      label: 'Servicios' },
+  { id: 'testimonios',    label: 'Testimonios' },
   { id: 'contacto',       label: 'Contacto' },
 ];
-
-// (Testimonials section removed; the contact CTA already serves social proof.)
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +66,8 @@ export default function Navbar() {
             rel="noreferrer noopener"
             onClick={closeMenu}
           >
-            Cotizar evento
+            <WhatsAppIcon />
+            Cotiza por WhatsApp
           </a>
         </nav>
 
@@ -69,8 +76,10 @@ export default function Navbar() {
           href={whatsappUrl()}
           target="_blank"
           rel="noreferrer noopener"
+          aria-label="Cotiza tu evento por WhatsApp"
         >
-          Cotizar evento
+          <WhatsAppIcon />
+          WhatsApp
         </a>
 
         <button

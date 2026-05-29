@@ -5,6 +5,7 @@ import Featured from './components/Featured/Featured';
 import Categories from './components/Gallery/Categories';
 import About from './components/About/About';
 import Services from './components/Services/Services';
+import Testimonials from './components/Testimonials/Testimonials';
 import Cta from './components/Cta/Cta';
 import Footer from './components/Footer/Footer';
 import useRevealOnScroll from './hooks/useRevealOnScroll';
@@ -25,6 +26,7 @@ export default function App() {
         <Categories />
         <About />
         <Services />
+        <Testimonials />
         <Cta />
       </main>
       <Footer />

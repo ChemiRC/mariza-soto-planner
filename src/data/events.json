@@ -7,7 +7,7 @@
     "coverage": "Disponibles para viajar a cualquier rincón de la República",
     "phone": "+52 333 148 4345",
     "whatsapp": "523331484345",
-    "whatsappMessage": "Hola, me interesa cotizar un evento con Mariza Soto Planner",
+    "whatsappMessage": "Necesito cotizar un evento",
     "email": "contacto@marizasotoplanner.com",
     "instagram": "https://instagram.com/marizasotoplanner",
     "facebook": "https://facebook.com/marizasotoplanner",
@@ -89,6 +89,33 @@
       "name": "Fiestas Infantiles",
       "description": "Mundos mágicos diseñados para que los más pequeños vivan una aventura inolvidable.",
       "services": ["Mobiliario", "Decoración", "Candy Bar", "Banquete"]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "María Fernanda López",
+      "event": "Boda",
+      "quote": "Hola, Mariza. Te queremos agradecer infinitamente por la boda, quedó hermosa. Todos nuestros invitados quedaron fascinados. Todo estuvo súper bien organizado: la decoración, la música y la comida estuvieron 10/10. La pasamos increíble. ¡Muchísimas gracias!"
+    },
+    {
+      "name": "Alejandra Ramírez",
+      "event": "Evento social",
+      "quote": "Muchas gracias por tus finas atenciones. Te quedó muy bonito y muy completo. El servicio fue excelente. ¡Muy agradecida!"
+    },
+    {
+      "name": "Daniela y Roberto Hernández",
+      "event": "Boda",
+      "quote": "Mariza, de verdad muchísimas gracias por el bodón que nos organizaste, superaste nuestras expectativas. La decoración te quedó espectacular, no dejamos de pensar en ese día. Todos los invitados encantados. Me encantó la decoración que pusiste arriba de la pista."
+    },
+    {
+      "name": "Sofía Martínez",
+      "event": "Boda",
+      "quote": "Gracias por la boda, fue la boda de ensueño. ¡Todo perfecto! De verdad mil gracias por todo. Padrísima la decoración y qué bárbara, ¡delicioso todo! Te luciste. Todas han dicho qué delicia de postres. ¡Ay, qué rico estuvo todo!"
+    },
+    {
+      "name": "Carmen Gutiérrez",
+      "event": "Evento social",
+      "quote": "¡Qué gusto conocerte, Mariza! Espero coincidir contigo pronto. Un abrazo, linda noche. Todo estuvo maravilloso, gracias por hacer de nuestro evento algo tan especial."
     }
   ]
 }

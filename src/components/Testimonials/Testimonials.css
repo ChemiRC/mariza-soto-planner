@@ -1,0 +1,190 @@
+.testimonials {
+  position: relative;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* Subtle gold texture */
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(212, 175, 55, 0.06), transparent 45%),
+    radial-gradient(ellipse at 85% 80%, rgba(212, 175, 55, 0.05), transparent 45%);
+  pointer-events: none;
+}
+
+.testimonials .container {
+  position: relative;
+}
+
+/* ── Carousel shell ───────────────────────────────────────── */
+.t-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.8rem;
+}
+
+.t-viewport {
+  flex: 1;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.t-track {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 520ms var(--ease);
+  align-items: stretch;
+}
+
+.t-slide {
+  box-sizing: border-box;
+  padding-inline: 0.6rem;
+  display: flex;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.t-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  margin: 0;
+  padding: 2rem 1.8rem;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.t-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+.t-card__stars {
+  display: flex;
+  gap: 3px;
+  color: var(--color-gold);
+}
+
+.t-card__quote {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.98rem, 0.4vw + 0.85rem, 1.08rem);
+  line-height: 1.7;
+  color: var(--color-text);
+  position: relative;
+}
+
+.t-card__quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -1.4rem;
+  left: -0.4rem;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-gold);
+  opacity: 0.25;
+}
+
+.t-card__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.t-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-gold);
+}
+
+.t-card__event {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-mute);
+}
+
+/* ── Nav buttons ──────────────────────────────────────────── */
+.t-nav {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--border-gold-soft);
+  color: var(--color-text-soft);
+  display: grid;
+  place-items: center;
+  transition: all var(--transition-base);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.t-nav:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border-color: var(--color-gold);
+  transform: scale(1.06);
+}
+
+.t-nav svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Dots ─────────────────────────────────────────────────── */
+.t-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.8rem;
+}
+
+.t-dot {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-line);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition-base), width var(--transition-base);
+  touch-action: manipulation;
+}
+
+.t-dot.is-active {
+  background: var(--gradient-gold);
+  width: 42px;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .t-nav { display: none; }
+
+  .t-carousel {
+    margin-top: 2.2rem;
+    gap: 0;
+  }
+
+  .t-slide {
+    padding-inline: 0.35rem;
+  }
+
+  .t-card {
+    padding: 1.6rem 1.4rem;
+  }
+}

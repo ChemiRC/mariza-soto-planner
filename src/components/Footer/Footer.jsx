@@ -69,9 +69,13 @@ export default function Footer() {
         className="float-wa"
         target="_blank"
         rel="noreferrer noopener"
-        aria-label="Contactar por WhatsApp"
+        aria-label="Cotiza tu evento por WhatsApp"
       >
-        <WhatsAppIcon />
+        <span className="float-wa__pulse" aria-hidden="true" />
+        <span className="float-wa__icon">
+          <WhatsAppIcon />
+        </span>
+        <span className="float-wa__tooltip" role="tooltip">Cotiza tu evento</span>
       </a>
     </footer>
   );
