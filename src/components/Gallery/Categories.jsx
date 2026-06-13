@@ -103,7 +103,7 @@ export default function Categories() {
   };
 
   return (
-    <section className="categories section" id="eventos" aria-labelledby="categories-title">
+    <section className="categories section" id="categories" aria-labelledby="categories-title">
       <div className="container">
         <span className="eyebrow" style={{ display: 'block', textAlign: 'center' }}>
           Portafolio
@@ -122,10 +122,11 @@ export default function Categories() {
             return (
               <button
                 key={c.id}
+                id={`tab-${c.id}`}
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                aria-controls="category-gallery"
+                aria-controls={c.id}
                 className={`cat-card ${isActive ? 'is-active' : ''}`}
                 onClick={() => selectCategory(c.id)}
                 style={cover ? { backgroundImage: `url("${cover}")` } : undefined}
@@ -145,7 +146,7 @@ export default function Categories() {
           ref={galleryRef}
           className="categories__panel"
           role="tabpanel"
-          id="category-gallery"
+          id={activeCategory.id}
           aria-labelledby={`tab-${activeCategory.id}`}
           key={activeCategory.id}
         >

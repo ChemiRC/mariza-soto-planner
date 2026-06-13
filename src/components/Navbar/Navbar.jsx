@@ -11,7 +11,7 @@ const WhatsAppIcon = () => (
 
 const navItems = [
   { id: 'destacados',     label: 'Portafolio' },
-  { id: 'eventos',        label: 'Eventos' },
+  { id: 'categories',     label: 'Eventos' },
   { id: 'sobre-nosotros', label: 'Nosotros' },
   { id: 'servicios',      label: 'Servicios' },
   { id: 'testimonios',    label: 'Testimonios' },
