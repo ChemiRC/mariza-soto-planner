@@ -7,6 +7,31 @@ import './Categories.css';
 
 const PREVIEW_COUNT = 8;
 
+// Hash aliases: sitemap/nav use short Spanish slugs that don't always
+// match the data IDs (kebab-case ASCII). Map both forms here.
+const HASH_TO_CATEGORY_ID = {
+  bodas: 'bodas',
+  bautizos: 'bautizos',
+  'baby-showers': 'baby-showers',
+  'fiestas-infantiles': 'fiestas-infantiles',
+  comuniones: 'primeras-comuniones',
+  'primeras-comuniones': 'primeras-comuniones',
+  cumpleanos: 'cumpleanos',
+  'cumpleaños': 'cumpleanos',
+  graduaciones: 'graduaciones',
+};
+
+function categoryIdFromHash(categories) {
+  if (typeof window === 'undefined') return null;
+  const raw = window.location.hash.slice(1);
+  if (!raw) return null;
+  let decoded;
+  try { decoded = decodeURIComponent(raw); } catch { decoded = raw; }
+  const target = HASH_TO_CATEGORY_ID[decoded.toLowerCase()];
+  // Only return it if the category is currently rendered (has photos).
+  return target && categories.some((c) => c.id === target) ? target : null;
+}
+
 export default function Categories() {
   // Sólo mostramos categorías con al menos una foto.
   const categories = useMemo(
@@ -14,7 +39,11 @@ export default function Categories() {
     []
   );
 
-  const [activeId, setActiveId] = useState(categories[0]?.id);
+  // Lazy init: if the URL arrives with #bodas / #bautizos / etc., open that
+  // tab on first paint (avoids a flicker from the default tab).
+  const [activeId, setActiveId] = useState(
+    () => categoryIdFromHash(categories) || categories[0]?.id
+  );
   const [expanded, setExpanded] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const galleryRef = useRef(null);
@@ -31,6 +60,31 @@ export default function Categories() {
   useEffect(() => {
     setExpanded(false);
   }, [activeId]);
+
+  // Sync with URL hash: respond to deep links like /#bodas (from the sitemap
+  // or shared URLs) and to in-page hashchange navigation.
+  useEffect(() => {
+    const applyHash = (smooth) => {
+      const id = categoryIdFromHash(categories);
+      if (!id) return;
+      setActiveId(id);
+      // Wait a tick so the panel updates before scrolling.
+      setTimeout(() => {
+        galleryRef.current?.scrollIntoView({
+          behavior: smooth ? 'smooth' : 'auto',
+          block: 'start',
+        });
+      }, 80);
+    };
+
+    // On mount: if we already arrived with a matching hash, scroll into view
+    // (the browser's native scroll-to-fragment finds no #bodas element).
+    if (categoryIdFromHash(categories)) applyHash(false);
+
+    const onHashChange = () => applyHash(true);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [categories]);
 
   if (!activeCategory) return null;
 
